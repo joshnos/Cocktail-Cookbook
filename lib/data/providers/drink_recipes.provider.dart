@@ -1,118 +1,89 @@
 import 'package:cocktail_coockbook/data/apis/drink_recipes.api.dart';
-import 'package:cocktail_coockbook/domain/models/alcoholicFilter.model.dart';
-import 'package:cocktail_coockbook/domain/models/category.model.dart';
-import 'package:cocktail_coockbook/domain/models/drink.model.dart';
-import 'package:cocktail_coockbook/domain/models/glass.model.dart';
-import 'package:cocktail_coockbook/domain/models/ingredient.model.dart';
-import 'package:cocktail_coockbook/domain/models/ingredientName.model.dart';
 import 'package:dio/dio.dart';
 
 class DrinkRecipesProvider {
-  final DrinkRecipesApi api = DrinkRecipesApi();
+  final DrinkRecipesApi _api = DrinkRecipesApi();
 
-  Future<List<Drink>> searchCocktailByName(String name) async {
-    Response response = await api.searchCocktailByName(name);
-    List<Map<String, dynamic>> drinks =
-        response.data['drinks'] as List<Map<String, dynamic>>;
-    return drinks.map((e) => Drink.fromJson(e)).toList();
+  Future<List<Map<String, dynamic>>> searchCocktailByName(String name) async {
+    Response response = await _api.searchCocktailByName(name);
+    return response.data['drinks'] as List<Map<String, dynamic>>;
   }
 
-  Future<List<Drink>> listCocktailsByFirstLetter(String firstLetter) async {
-    Response response = await api.listCocktailsByFirstLetter(firstLetter);
-    List<Map<String, dynamic>> drinks =
-        response.data['drinks'] as List<Map<String, dynamic>>;
-    return drinks.map((e) => Drink.fromJson(e)).toList();
+  Future<List<Map<String, dynamic>>> listCocktailsByFirstLetter(
+      String firstLetter) async {
+    Response response = await _api.listCocktailsByFirstLetter(firstLetter);
+    return response.data['drinks'] as List<Map<String, dynamic>>;
   }
 
-  Future<List<Ingredient>> searchIngredientByName(String name) async {
-    Response response = await api.searchIngredientByName(name);
-    List<Map<String, dynamic>> drinks =
-        response.data['ingredients'] as List<Map<String, dynamic>>;
-    return drinks.map((e) => Ingredient.fromJson(e)).toList();
+  Future<List<Map<String, dynamic>>> searchIngredientByName(String name) async {
+    Response response = await _api.searchIngredientByName(name);
+    return response.data['ingredients'] as List<Map<String, dynamic>>;
   }
 
-  Future<List<Drink>> lookupCocktailById(String id) async {
-    Response response = await api.lookupCocktailById(id);
-    List<Map<String, dynamic>> drinks =
-        response.data['drinks'] as List<Map<String, dynamic>>;
-    return drinks.map((e) => Drink.fromJson(e)).toList();
+  Future<List<Map<String, dynamic>>> lookupCocktailById(String id) async {
+    Response response = await _api.lookupCocktailById(id);
+    return response.data['drinks'] as List<Map<String, dynamic>>;
   }
 
-  Future<List<Ingredient>> lookupIngredientById(String id) async {
-    Response response = await api.lookupIngredientById(id);
-    List<Map<String, dynamic>> drinks =
-        response.data['ingredients'] as List<Map<String, dynamic>>;
-    return drinks.map((e) => Ingredient.fromJson(e)).toList();
+  Future<List<Map<String, dynamic>>> lookupIngredientById(String id) async {
+    Response response = await _api.lookupIngredientById(id);
+    return response.data['ingredients'] as List<Map<String, dynamic>>;
   }
 
-  Future<List<Drink>> lookupRandomCocktail() async {
-    Response response = await api.lookupRandomCocktail();
-    List<Map<String, dynamic>> drinks =
-        response.data['drinks'] as List<Map<String, dynamic>>;
-    return drinks.map((e) => Drink.fromJson(e)).toList();
+  Future<List<Map<String, dynamic>>> lookupRandomCocktail() async {
+    Response response = await _api.lookupRandomCocktail();
+    return response.data['drinks'] as List<Map<String, dynamic>>;
   }
 
-  Future<List<Drink>> searchCocktailsByIngredient(String name) async {
-    Response response = await api.searchCocktailsByIngredient(name);
-    List<Map<String, dynamic>> drinks =
-        response.data['drinks'] as List<Map<String, dynamic>>;
-    return drinks.map((e) => Drink.fromJson(e)).toList();
+  Future<List<Map<String, dynamic>>> searchCocktailsByIngredient(
+      String name) async {
+    Response response = await _api.searchCocktailsByIngredient(name);
+    return response.data['drinks'] as List<Map<String, dynamic>>;
   }
 
-  Future<List<Drink>> filterCocktailsByAlcoholic(String alcoholic) async {
-    Response response = await api.filterCocktailsByAlcoholic(alcoholic);
-    List<Map<String, dynamic>> drinks =
-        response.data['drinks'] as List<Map<String, dynamic>>;
-    return drinks.map((e) => Drink.fromJson(e)).toList();
+  Future<List<Map<String, dynamic>>> filterCocktailsByAlcoholic(
+      String alcoholic) async {
+    Response response = await _api.filterCocktailsByAlcoholic(alcoholic);
+    return response.data['drinks'] as List<Map<String, dynamic>>;
   }
 
-  Future<List<Drink>> filterCocktailsByCategory(String category) async {
-    Response response = await api.filterCocktailsByCategory(category);
-    List<Map<String, dynamic>> drinks =
-        response.data['drinks'] as List<Map<String, dynamic>>;
-    return drinks.map((e) => Drink.fromJson(e)).toList();
+  Future<List<Map<String, dynamic>>> filterCocktailsByCategory(
+      String category) async {
+    Response response = await _api.filterCocktailsByCategory(category);
+    return response.data['drinks'] as List<Map<String, dynamic>>;
   }
 
-  Future<List<Drink>> filterCocktailsByGlass(String glass) async {
-    Response response = await api.filterCocktailsByGlass(glass);
-    List<Map<String, dynamic>> drinks =
-        response.data['drinks'] as List<Map<String, dynamic>>;
-    return drinks.map((e) => Drink.fromJson(e)).toList();
+  Future<List<Map<String, dynamic>>> filterCocktailsByGlass(
+      String glass) async {
+    Response response = await _api.filterCocktailsByGlass(glass);
+    return response.data['drinks'] as List<Map<String, dynamic>>;
   }
 
-  Future<List<Category>> listCategories() async {
-    Response response = await api.listCategories();
-    List<Map<String, dynamic>> drinks =
-        response.data['drinks'] as List<Map<String, dynamic>>;
-    return drinks.map((e) => Category.fromJson(e)).toList();
+  Future<List<Map<String, dynamic>>> listCategories() async {
+    Response response = await _api.listCategories();
+    return response.data['drinks'] as List<Map<String, dynamic>>;
   }
 
-  Future<List<Glass>> listGlasses() async {
-    Response response = await api.listGlasses();
-    List<Map<String, dynamic>> drinks =
-        response.data['drinks'] as List<Map<String, dynamic>>;
-    return drinks.map((e) => Glass.fromJson(e)).toList();
+  Future<List<Map<String, dynamic>>> listGlasses() async {
+    Response response = await _api.listGlasses();
+    return response.data['drinks'] as List<Map<String, dynamic>>;
   }
 
-  Future<List<IngredientName>> listIngredients() async {
-    Response response = await api.listIngredients();
-    List<Map<String, dynamic>> drinks =
-        response.data['drinks'] as List<Map<String, dynamic>>;
-    return drinks.map((e) => IngredientName.fromJson(e)).toList();
+  Future<List<Map<String, dynamic>>> listIngredients() async {
+    Response response = await _api.listIngredients();
+    return response.data['drinks'] as List<Map<String, dynamic>>;
   }
 
-  Future<List<AlcoholicFilter>> listAlcoholicFilters() async {
-    Response response = await api.listAlcoholicFilters();
-    List<Map<String, dynamic>> drinks =
-        response.data['drinks'] as List<Map<String, dynamic>>;
-    return drinks.map((e) => AlcoholicFilter.fromJson(e)).toList();
+  Future<List<Map<String, dynamic>>> listAlcoholicFilters() async {
+    Response response = await _api.listAlcoholicFilters();
+    return response.data['drinks'] as List<Map<String, dynamic>>;
   }
 
   String drinkImagePreview(String imagePath) {
-    return api.drinkImagePreview(imagePath);
+    return _api.drinkImagePreview(imagePath);
   }
 
   String ingredientThumbnail(String name) {
-    return api.ingredientThumbnail(name);
+    return _api.ingredientThumbnail(name);
   }
 }
