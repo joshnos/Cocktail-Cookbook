@@ -4,7 +4,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class MainLayout extends StatelessWidget {
   final Widget child;
-  MainLayout({Key? key, required this.child}) : super(key: key);
+  final PreferredSizeWidget appbar;
+  const MainLayout({Key? key, required this.child, required this.appbar})
+      : super(key: key);
 
   static const tabs = [
     BottomNavigationBarItem(
@@ -28,6 +30,7 @@ class MainLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: appbar,
       body: child,
       bottomNavigationBar:
           BlocBuilder<BottomNavigationCubit, BottomNavigationState>(
@@ -42,13 +45,21 @@ class MainLayout extends StatelessWidget {
                     context
                         .read<BottomNavigationCubit>()
                         .getNavBarItem(NavbarItem.home);
-                    Navigator.pushNamed(context, '/home');
+                    Navigator.pushNamedAndRemoveUntil(
+                      context,
+                      '/home',
+                      (route) => false,
+                    );
                     break;
                   case 1:
                     context
                         .read<BottomNavigationCubit>()
                         .getNavBarItem(NavbarItem.search);
-                    Navigator.pushNamed(context, '/search');
+                    Navigator.pushNamedAndRemoveUntil(
+                      context,
+                      '/search',
+                      (route) => false,
+                    );
                     break;
                 }
               }

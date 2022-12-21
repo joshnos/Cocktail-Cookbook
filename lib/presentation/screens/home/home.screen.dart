@@ -6,6 +6,14 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MainLayout(child: const Text('Home'));
+    return MainLayout(
+      appbar: AppBar(
+        centerTitle: true,
+        title: const Text(
+          'Home',
+        ),
+      ),
+      child: const Text('Home'),
+    );
   }
 }
