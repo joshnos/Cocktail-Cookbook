@@ -20,7 +20,7 @@ class DrinkRecipesApi {
     return _dioHttpClient.get(path);
   }
 
-  Future<Response> listCocktailsByFirstLetter(String firstLetter) async {
+  Future<Response> listCocktailsByFirstLetter(String firstLetter) {
     String path =
         '$drinkRecipesApiBaseUrl$drinkRecipesApiJson$drinkRecipesApiVersion${drinkRecipesApiKey}search.php?f=$firstLetter';
 
@@ -34,93 +34,88 @@ class DrinkRecipesApi {
     return _dioHttpClient.get(path);
   }
 
-  Future<Response> lookupCocktailById(String id) async {
+  Future<Response> lookupCocktailById(String id) {
     String path =
         '$drinkRecipesApiBaseUrl$drinkRecipesApiJson$drinkRecipesApiVersion${drinkRecipesApiKey}lookup.php?i=$id';
 
     return _dioHttpClient.get(path);
   }
 
-  Future<Response> lookupIngredientById(String id) async {
+  Future<Response> lookupIngredientById(String id) {
     String path =
         '$drinkRecipesApiBaseUrl$drinkRecipesApiJson$drinkRecipesApiVersion${drinkRecipesApiKey}lookup.php?iid=$id';
 
     return _dioHttpClient.get(path);
   }
 
-  Future<Response> lookupRandomCocktail() async {
+  Future<Response> lookupRandomCocktail() {
     String path =
         '$drinkRecipesApiBaseUrl$drinkRecipesApiJson$drinkRecipesApiVersion${drinkRecipesApiKey}random.php';
 
     return _dioHttpClient.get(path);
   }
 
-  Future<Response> searchCocktailsByIngredient(String name) async {
+  Future<Response> searchCocktailsByIngredient(String name) {
     String path =
         '$drinkRecipesApiBaseUrl$drinkRecipesApiJson$drinkRecipesApiVersion${drinkRecipesApiKey}filter.php?i=$name';
 
     return _dioHttpClient.get(path);
   }
 
-  Future<Response> filterCocktailsByAlcoholic(String alcoholic) async {
+  Future<Response> filterCocktailsByAlcoholic(String alcoholic) {
     String path =
         '$drinkRecipesApiBaseUrl$drinkRecipesApiJson$drinkRecipesApiVersion${drinkRecipesApiKey}filter.php?a=$alcoholic';
 
     return _dioHttpClient.get(path);
   }
 
-  Future<Response> filterCocktailsByCategory(String category) async {
+  Future<Response> filterCocktailsByCategory(String category) {
     String path =
         '$drinkRecipesApiBaseUrl$drinkRecipesApiJson$drinkRecipesApiVersion${drinkRecipesApiKey}filter.php?c=$category';
 
     return _dioHttpClient.get(path);
   }
 
-  Future<Response> filterCocktailsByGlass(String glass) async {
+  Future<Response> filterCocktailsByGlass(String glass) {
     String path =
         '$drinkRecipesApiBaseUrl$drinkRecipesApiJson$drinkRecipesApiVersion${drinkRecipesApiKey}filter.php?g=$glass';
 
     return _dioHttpClient.get(path);
   }
 
-  Future<Response> listCategories() async {
+  Future<Response> listCategories() {
     String path =
         '$drinkRecipesApiBaseUrl$drinkRecipesApiJson$drinkRecipesApiVersion${drinkRecipesApiKey}list.php?c=list';
 
     return _dioHttpClient.get(path);
   }
 
-  Future<Response> listGlasses() async {
+  Future<Response> listGlasses() {
     String path =
         '$drinkRecipesApiBaseUrl$drinkRecipesApiJson$drinkRecipesApiVersion${drinkRecipesApiKey}list.php?g=list';
 
     return _dioHttpClient.get(path);
   }
 
-  Future<Response> listIngredients() async {
+  Future<Response> listIngredients() {
     String path =
         '$drinkRecipesApiBaseUrl$drinkRecipesApiJson$drinkRecipesApiVersion${drinkRecipesApiKey}list.php?i=list';
 
     return _dioHttpClient.get(path);
   }
 
-  Future<Response> listAlcoholicFilters() async {
+  Future<Response> listAlcoholicFilters() {
     String path =
         '$drinkRecipesApiBaseUrl$drinkRecipesApiJson$drinkRecipesApiVersion${drinkRecipesApiKey}list.php?a=list';
 
     return _dioHttpClient.get(path);
   }
 
-  Future<Response> drinkImagePreview(String imagePath) async {
-    String path = '$imagePath/$drinkRecipesApiPreview';
-
-    return _dioHttpClient.get(path);
+  String drinkImagePreview(String imagePath) {
+    return '$imagePath/$drinkRecipesApiPreview';
   }
 
-  Future<Response> ingredientThumbnail(String name) async {
-    String path =
-        '$drinkRecipesApiBaseUrl$drinkRecipesApiImages$drinkRecipesApiIngredients$name.png';
-
-    return _dioHttpClient.get(path);
+  String ingredientThumbnail(String name) {
+    return '$drinkRecipesApiBaseUrl$drinkRecipesApiImages$drinkRecipesApiIngredients$name.png';
   }
 }
