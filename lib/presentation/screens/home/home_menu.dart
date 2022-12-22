@@ -1,4 +1,5 @@
 import 'package:cocktail_coockbook/application/random_cocktail_cubit/random_cocktail_cubit.dart';
+import 'package:cocktail_coockbook/presentation/screens/alcoholic/alcoholic.screen.dart';
 import 'package:cocktail_coockbook/presentation/screens/glass/glass.screen.dart';
 import 'package:cocktail_coockbook/presentation/screens/ingredients/ingredients.screen.dart';
 import 'package:flutter/material.dart';
@@ -49,7 +50,7 @@ class HomeMenu extends StatelessWidget {
                   ),
                   _FilterCard(
                     label: 'Alcoholic',
-                    filterKey: 'hasPetWalking',
+                    filterKey: 'alcoholic',
                     icon: Icons.liquor,
                   ),
                   _FilterCard(
@@ -213,6 +214,12 @@ class _FilterCard extends StatelessWidget {
               Navigator.pushNamed(
                 context,
                 GlassScreen.routeName,
+              );
+              break;
+            case 'alcoholic':
+              Navigator.pushNamed(
+                context,
+                AlcoholicScreen.routeName,
               );
               break;
             default:

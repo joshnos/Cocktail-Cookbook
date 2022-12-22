@@ -1,5 +1,6 @@
 import 'package:cocktail_coockbook/application/bottom_navigation_cubit/bottom_navigation_cubit.dart';
 import 'package:cocktail_coockbook/domain/repositories/drink_recipes.repository.dart';
+import 'package:cocktail_coockbook/presentation/screens/alcoholic/alcoholic.screen.dart';
 import 'package:cocktail_coockbook/presentation/screens/glass/glass.screen.dart';
 import 'package:cocktail_coockbook/presentation/screens/home/home.screen.dart';
 import 'package:cocktail_coockbook/presentation/screens/ingredients/ingredients.screen.dart';
@@ -52,6 +53,7 @@ class _AppViewState extends State<AppView> {
           DrinkDetailsScreen.routeName: (context) => const DrinkDetailsScreen(),
           IngredientsScreen.routeName: (context) => const IngredientsScreen(),
           GlassScreen.routeName: (context) => const GlassScreen(),
+          AlcoholicScreen.routeName: (context) => const AlcoholicScreen(),
         },
         initialRoute: '/home',
         builder: (context, child) {
