@@ -13,14 +13,6 @@ class MainLayout extends StatelessWidget {
       icon: Icon(Icons.home),
       label: 'Home',
     ),
-    /*BottomNavigationBarItem(
-      icon: Icon(Icons.local_bar),
-      label: 'Drinks',
-    ),
-    BottomNavigationBarItem(
-      icon: Icon(Icons.liquor),
-      label: 'Ingredients',
-    ),*/
     BottomNavigationBarItem(
       icon: Icon(Icons.search),
       label: 'Search',
@@ -31,7 +23,10 @@ class MainLayout extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appbar,
-      body: child,
+      body: Padding(
+        padding: const EdgeInsets.all(15),
+        child: child,
+      ),
       bottomNavigationBar:
           BlocBuilder<BottomNavigationCubit, BottomNavigationState>(
         builder: (context, state) {
