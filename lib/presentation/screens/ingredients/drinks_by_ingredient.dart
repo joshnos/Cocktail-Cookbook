@@ -3,10 +3,7 @@ import 'package:cocktail_coockbook/application/utils/enums/api_status.enum.dart'
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../domain/models/drink.model.dart';
-import '../../utils/route_arguments/drink_details.arguments.dart';
 import '../../utils/widgets/drink_card.widget.dart';
-import '../drink_detials/drink_details.screen.dart';
 
 class DrinksByIngredient extends StatelessWidget {
   const DrinksByIngredient({Key? key}) : super(key: key);
