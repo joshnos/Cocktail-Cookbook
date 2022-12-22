@@ -202,78 +202,78 @@ class _IngredientsList extends StatelessWidget {
               children: [
                 if (state.data!.strIngredient1 != null)
                   _IngredientCard(
-                    measure: state.data!.strMeasure1!,
-                    name: state.data!.strIngredient1!,
+                    measure: state.data!.strMeasure1 ?? '',
+                    name: state.data!.strIngredient1 ?? '',
                   ),
                 if (state.data!.strIngredient2 != null)
                   _IngredientCard(
-                    measure: state.data!.strMeasure2!,
-                    name: state.data!.strIngredient2!,
+                    measure: state.data!.strMeasure2 ?? '',
+                    name: state.data!.strIngredient2 ?? '',
                   ),
                 if (state.data!.strIngredient3 != null)
                   _IngredientCard(
-                    measure: state.data!.strMeasure3!,
-                    name: state.data!.strIngredient3!,
+                    measure: state.data!.strMeasure3 ?? '',
+                    name: state.data!.strIngredient3 ?? '',
                   ),
                 if (state.data!.strIngredient4 != null)
                   _IngredientCard(
-                    measure: state.data!.strMeasure4!,
-                    name: state.data!.strIngredient4!,
+                    measure: state.data!.strMeasure4 ?? '',
+                    name: state.data!.strIngredient4 ?? '',
                   ),
                 if (state.data!.strIngredient5 != null)
                   _IngredientCard(
-                    measure: state.data!.strMeasure5!,
-                    name: state.data!.strIngredient5!,
+                    measure: state.data!.strMeasure5 ?? '',
+                    name: state.data!.strIngredient5 ?? '',
                   ),
                 if (state.data!.strIngredient6 != null)
                   _IngredientCard(
-                    measure: state.data!.strMeasure6!,
-                    name: state.data!.strIngredient6!,
+                    measure: state.data!.strMeasure6 ?? '',
+                    name: state.data!.strIngredient6 ?? '',
                   ),
                 if (state.data!.strIngredient7 != null)
                   _IngredientCard(
-                    measure: state.data!.strMeasure7!,
-                    name: state.data!.strIngredient7!,
+                    measure: state.data!.strMeasure7 ?? '',
+                    name: state.data!.strIngredient7 ?? '',
                   ),
                 if (state.data!.strIngredient8 != null)
                   _IngredientCard(
-                    measure: state.data!.strMeasure8!,
-                    name: state.data!.strIngredient8!,
+                    measure: state.data!.strMeasure8 ?? '',
+                    name: state.data!.strIngredient8 ?? '',
                   ),
                 if (state.data!.strIngredient9 != null)
                   _IngredientCard(
-                    measure: state.data!.strMeasure9!,
-                    name: state.data!.strIngredient9!,
+                    measure: state.data!.strMeasure9 ?? '',
+                    name: state.data!.strIngredient9 ?? '',
                   ),
                 if (state.data!.strIngredient10 != null)
                   _IngredientCard(
-                    measure: state.data!.strMeasure10!,
-                    name: state.data!.strIngredient10!,
+                    measure: state.data!.strMeasure10 ?? '',
+                    name: state.data!.strIngredient10 ?? '',
                   ),
                 if (state.data!.strIngredient11 != null)
                   _IngredientCard(
-                    measure: state.data!.strMeasure11!,
-                    name: state.data!.strIngredient11!,
+                    measure: state.data!.strMeasure11 ?? '',
+                    name: state.data!.strIngredient11 ?? '',
                   ),
                 if (state.data!.strIngredient12 != null)
                   _IngredientCard(
-                    measure: state.data!.strMeasure12!,
-                    name: state.data!.strIngredient12!,
+                    measure: state.data!.strMeasure12 ?? '',
+                    name: state.data!.strIngredient12 ?? '',
                   ),
                 if (state.data!.strIngredient13 != null)
                   _IngredientCard(
-                    measure: state.data!.strMeasure13!,
-                    name: state.data!.strIngredient13!,
+                    measure: state.data!.strMeasure13 ?? '',
+                    name: state.data!.strIngredient13 ?? '',
                   ),
                 if (state.data!.strIngredient14 != null)
                   _IngredientCard(
-                    measure: state.data!.strMeasure14!,
-                    name: state.data!.strIngredient14!,
+                    measure: state.data!.strMeasure14 ?? '',
+                    name: state.data!.strIngredient14 ?? '',
                   ),
                 if (state.data!.strIngredient15 != null)
                   _IngredientCard(
-                    measure: state.data!.strMeasure15!,
-                    name: state.data!.strIngredient15!,
+                    measure: state.data!.strMeasure15 ?? '',
+                    name: state.data!.strIngredient15 ?? '',
                   ),
               ],
             ),
