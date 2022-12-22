@@ -1,16 +1,23 @@
 # cocktail_coockbook
 
-A new Flutter project.
+A side project developed with Flutter.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+This project is a side project used for my job application.
 
-A few resources to get you started if this is your first Flutter project:
+### Supported platforms
+- Ios
+- Android
+- Web
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### Requirements
+- A virtual device (Android, Ios) or a web navigator (Chrome)
+- Flutter installed in the test computer, if not [Install here](https://docs.flutter.dev/get-started/install?gclid=CjwKCAiAnZCdBhBmEiwA8nDQxe6vh6aMRXow81WfyyykAVYfsk1j4xmS7n3ZJYZpoc7LCdb39sm2ShoCfRAQAvD_BwE&gclsrc=aw.ds)
+- Internet connection
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Running the project
+- Clone the repository
+- Open the selected virtual device
+- Open a terminal in the root direction of the cloned project
+- Run the command "flutter run"
