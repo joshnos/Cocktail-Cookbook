@@ -1,4 +1,5 @@
 import 'package:cocktail_coockbook/application/random_cocktail_cubit/random_cocktail_cubit.dart';
+import 'package:cocktail_coockbook/presentation/screens/ingredients/ingredients.screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -57,7 +58,7 @@ class HomeMenu extends StatelessWidget {
                   ),
                   _FilterCard(
                     label: 'Ingredients',
-                    filterKey: 'hasPetWalking',
+                    filterKey: 'ingredient',
                     icon: Icons.menu_book,
                   ),
                 ],
@@ -199,7 +200,17 @@ class _FilterCard extends StatelessWidget {
       ),
       elevation: 5,
       child: InkWell(
-        onTap: () {},
+        onTap: () {
+          switch (filterKey) {
+            case 'ingredient':
+              Navigator.pushNamed(
+                context,
+                IngredientsScreen.routeName,
+              );
+              break;
+            default:
+          }
+        },
         borderRadius: BorderRadius.circular(20.0),
         child: Padding(
           padding: const EdgeInsets.all(5),
