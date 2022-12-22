@@ -1,8 +1,10 @@
 import 'package:cocktail_coockbook/application/lookup_drink_by_id_cubit/lookup_drink_by_id_cubit.dart';
 import 'package:cocktail_coockbook/application/utils/enums/api_status.enum.dart';
+import 'package:cocktail_coockbook/domain/repositories/drink_recipes.repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../application/lookup_ingredient_cubit/lookup_ingredient_cubit.dart';
 import '../../utils/layouts/full_screen.layout.dart';
 
 class DrinkDetails extends StatelessWidget {
@@ -248,21 +250,6 @@ class _IngredientsList extends StatelessWidget {
                     measure: state.data!.strMeasure10!,
                     name: state.data!.strIngredient10!,
                   ),
-                if (state.data!.strIngredient1 != null)
-                  _IngredientCard(
-                    measure: state.data!.strMeasure1!,
-                    name: state.data!.strIngredient1!,
-                  ),
-                if (state.data!.strIngredient1 != null)
-                  _IngredientCard(
-                    measure: state.data!.strMeasure1!,
-                    name: state.data!.strIngredient1!,
-                  ),
-                if (state.data!.strIngredient1 != null)
-                  _IngredientCard(
-                    measure: state.data!.strMeasure1!,
-                    name: state.data!.strIngredient1!,
-                  ),
                 if (state.data!.strIngredient11 != null)
                   _IngredientCard(
                     measure: state.data!.strMeasure11!,
@@ -314,7 +301,19 @@ class _IngredientCard extends StatelessWidget {
       ),
       elevation: 5,
       child: InkWell(
-        onTap: () {},
+        onTap: () {
+          showModalBottomSheet(
+            isDismissible: true,
+            context: context,
+            builder: (context) {
+              return BlocProvider(
+                create: (context) => LookupIngredientCubit(
+                    context.read<DrinkRecipesRepository>(), name),
+                child: const _IngredientDetails(),
+              );
+            },
+          );
+        },
         borderRadius: BorderRadius.circular(20.0),
         child: Padding(
           padding: const EdgeInsets.all(5),
@@ -351,6 +350,116 @@ class _IngredientCard extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+}
+
+class _IngredientDetails extends StatelessWidget {
+  const _IngredientDetails({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<LookupIngredientCubit, LookupIngredientState>(
+      builder: (context, state) {
+        if (state.status == ApiStatus.loading) {
+          return SizedBox(
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height * .6,
+              child: const Center(child: CircularProgressIndicator()));
+        }
+        return SizedBox(
+          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height * .6,
+          child: Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Column(
+              children: [
+                Center(
+                  child: Text(
+                    state.data!.strIngredient ?? 'Ingredient',
+                    style: const TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 20),
+                Center(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Column(
+                        children: [
+                          const Text(
+                            'Type',
+                            style: TextStyle(
+                              fontSize: 12,
+                              fontWeight: FontWeight.w300,
+                            ),
+                          ),
+                          Text(
+                            state.data!.strType ?? '',
+                            style: const TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                      const VerticalDivider(),
+                      Column(
+                        children: [
+                          const Text(
+                            'ABV',
+                            style: TextStyle(
+                              fontSize: 12,
+                              fontWeight: FontWeight.w300,
+                            ),
+                          ),
+                          Text(
+                            state.data!.strABV ?? '',
+                            style: const TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                      const VerticalDivider(),
+                      Column(
+                        children: [
+                          const Text(
+                            'Alchol',
+                            style: TextStyle(
+                              fontSize: 12,
+                              fontWeight: FontWeight.w300,
+                            ),
+                          ),
+                          Text(
+                            state.data!.strAlcohol ?? '',
+                            style: const TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 20),
+                Expanded(
+                  child: Text(
+                    state.data!.strDescription ?? 'Description',
+                    softWrap: true,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
     );
   }
 }

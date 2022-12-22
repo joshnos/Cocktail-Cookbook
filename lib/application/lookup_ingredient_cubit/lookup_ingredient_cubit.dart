@@ -9,16 +9,16 @@ part 'lookup_ingredient_state.dart';
 
 class LookupIngredientCubit extends Cubit<LookupIngredientState> {
   final DrinkRecipesRepository repository;
-  final String id;
-  LookupIngredientCubit(this.repository, this.id)
+  final String name;
+  LookupIngredientCubit(this.repository, this.name)
       : super(const LookupIngredientState(status: ApiStatus.initial)) {
-    getIngredientById();
+    getIngredientByName();
   }
 
-  Future<void> getIngredientById() async {
+  Future<void> getIngredientByName() async {
     emit(const LookupIngredientState(status: ApiStatus.loading));
     try {
-      List<Ingredient> data = await repository.lookupIngredientById(id);
+      List<Ingredient> data = await repository.searchIngredientByName(name);
       emit(LookupIngredientState(data: data.first, status: ApiStatus.loaded));
     } catch (e) {
       emit(LookupIngredientState(
