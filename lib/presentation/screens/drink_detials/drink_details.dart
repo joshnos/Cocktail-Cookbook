@@ -304,6 +304,7 @@ class _IngredientCard extends StatelessWidget {
         onTap: () {
           showModalBottomSheet(
             isDismissible: true,
+            isScrollControlled: true,
             context: context,
             builder: (context) {
               return BlocProvider(
