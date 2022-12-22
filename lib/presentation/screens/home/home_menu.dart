@@ -1,4 +1,5 @@
 import 'package:cocktail_coockbook/application/random_cocktail_cubit/random_cocktail_cubit.dart';
+import 'package:cocktail_coockbook/presentation/screens/glass/glass.screen.dart';
 import 'package:cocktail_coockbook/presentation/screens/ingredients/ingredients.screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -43,7 +44,7 @@ class HomeMenu extends StatelessWidget {
                 children: const [
                   _FilterCard(
                     label: 'Glass',
-                    filterKey: 'hasPetWalking',
+                    filterKey: 'glass',
                     icon: Icons.local_bar,
                   ),
                   _FilterCard(
@@ -206,6 +207,12 @@ class _FilterCard extends StatelessWidget {
               Navigator.pushNamed(
                 context,
                 IngredientsScreen.routeName,
+              );
+              break;
+            case 'glass':
+              Navigator.pushNamed(
+                context,
+                GlassScreen.routeName,
               );
               break;
             default:

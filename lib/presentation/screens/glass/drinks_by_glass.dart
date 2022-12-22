@@ -1,25 +1,22 @@
-import 'package:cocktail_coockbook/application/ingredients_list_cubit/ingredients_list_cubit.dart';
+import 'package:cocktail_coockbook/application/glasses_list_cubit/glasses_list_cubit.dart';
 import 'package:cocktail_coockbook/application/utils/enums/api_status.enum.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../domain/models/drink.model.dart';
-import '../../utils/route_arguments/drink_details.arguments.dart';
 import '../../utils/widgets/drink_card.widget.dart';
-import '../drink_detials/drink_details.screen.dart';
 
-class DrinksByIngredient extends StatelessWidget {
-  const DrinksByIngredient({Key? key}) : super(key: key);
+class DrinksByGlass extends StatelessWidget {
+  const DrinksByGlass({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<IngredientsListCubit, IngredientsListState>(
+    return BlocListener<GlassesListCubit, GlassesListState>(
       listener: (context, state) {},
       child: SingleChildScrollView(
         child: Column(
           children: const [
             Text(
-              'Select an ingredient',
+              'Select a glass',
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
             _IngredientWrap(),
@@ -37,7 +34,7 @@ class _IngredientWrap extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<IngredientsListCubit, IngredientsListState>(
+    return BlocBuilder<GlassesListCubit, GlassesListState>(
       buildWhen: (previous, current) =>
           previous.ingredientListStatus != current.ingredientListStatus ||
           previous.selected != current.selected,
@@ -51,13 +48,13 @@ class _IngredientWrap extends StatelessWidget {
                 children: state.ingredientList!.map(
                   (e) {
                     return FilterChip(
-                      label: Text(e.strIngredient1 ?? 'Ingredient'),
-                      selected: state.selected == e.strIngredient1,
+                      label: Text(e.strGlass ?? 'Glass'),
+                      selected: state.selected == e.strGlass,
                       onSelected: (value) {
                         if (value) {
                           context
-                              .read<IngredientsListCubit>()
-                              .getDrinksByIngredient(e.strIngredient1!);
+                              .read<GlassesListCubit>()
+                              .getDrinksByGlass(e.strGlass!);
                         }
                       },
                     );
@@ -78,7 +75,7 @@ class _DrinksList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<IngredientsListCubit, IngredientsListState>(
+    return BlocBuilder<GlassesListCubit, GlassesListState>(
       builder: (context, state) {
         if (state.drinkListStatus == ApiStatus.error) {
           return const Center(
