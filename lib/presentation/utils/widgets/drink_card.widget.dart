@@ -23,7 +23,7 @@ class DrinkCard extends StatelessWidget {
             fit: BoxFit.fill,
             colorFilter: ColorFilter.mode(
               Colors.black.withOpacity(0.5),
-              BlendMode.colorBurn,
+              BlendMode.darken,
             ),
           ),
         ),

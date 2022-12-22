@@ -93,7 +93,7 @@ class DrinkSilverAppBar extends StatelessWidget {
                     state.data!.strDrinkThumb ?? 'https://dummyimage.com/300'),
                 fit: BoxFit.fill,
                 color: Colors.black.withOpacity(0.4),
-                colorBlendMode: BlendMode.color,
+                colorBlendMode: BlendMode.darken,
               ),
             ),
           );
